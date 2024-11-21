@@ -32,7 +32,6 @@ public class AuthtenticationService implements IAuthtenticationService {
         try {
             var authToken = new UsernamePasswordAuthenticationToken(credentials.getEmail(), credentials.getPassword());
             Authentication authenticate = authenticationManager.authenticate(authToken);
-            System.out.println(authenticate.getPrincipal());
             String username  = modelMapper.map(authenticate.getPrincipal(), User.class).getUsername();
 
             UserDto userDto = modelMapper.map(userRepository.findByUsername(username), UserDto.class);

@@ -47,12 +47,12 @@ public class TokenService {
         Algorithm algorithm = Algorithm.HMAC256(secret.getBytes());
         Instant expiration = generateExpirationTimeIn(this.expiration);
         String token = JWT.create()
-                .withSubject(username)
+                .withSubject(user.getEmail())
                 .withExpiresAt(expiration)
                 .withIssuer("techforb")
                 .withClaim("userId", user.getId())
                 .withClaim("name", user.getName())
-                .withClaim("email", user.getEmail())
+                .withClaim("username", user.getUsername())
                 .sign(algorithm);
         return token;
     }
