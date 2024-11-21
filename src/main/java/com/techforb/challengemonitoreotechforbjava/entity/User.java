@@ -25,4 +25,7 @@ public class User {
 
     @Column
     private String name;
+
+    @Column(unique = true)
+    private String email;
 }

@@ -27,4 +27,10 @@ public class CreateUserDto implements Serializable {
     @NotEmpty(message = "El nombre no puede estar vacío")
     @Size(min = 4, max = 50, message = "El nombre debe tener entre 4 y 50 caracteres")
     private String name;
+
+    @NotNull(message = "El email no puede ser nulo")
+    @NotBlank(message = "El email no puede estar vacío")
+    @NotEmpty(message = "El email no puede estar vacío")
+    @Email(message = "El email debe tener formato válido")
+    private String email;
 }
